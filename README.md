@@ -1,15 +1,32 @@
-# discord-bot-ts
+# TypeScript Discord Bot
 
-To install dependencies:
+## Setup
 
-```bash
+Install dependencies with package manager
+
+```
+npm install
+yarn install
+npnm install
 bun install
 ```
 
-To run:
+## Building a Slash Command
 
-```bash
-bun run dist/index.ts
+You can build a Slash Command with `Command` utility class:
+
+```ts
+export default new Command({
+  builder: new SlashCommandBuilder()
+    .setName("roll")
+    .setDescription("Roll dice"),
+  defer: false,
+  ephemeral: true,
+  async execute(interaction) {
+    await interaction.reply({
+      content: `🎲 ${Math.round(Math.random() * 6)}`,
+    });
+  },
+});
 ```
 
-This project was created using `bun init` in bun v1.1.27. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
