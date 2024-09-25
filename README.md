@@ -4,10 +4,17 @@
 
 Install dependencies with package manager
 
-```
+```bash
+# Using npm
 npm install
+
+# Using yarn
 yarn install
-npnm install
+
+# Using pnpm
+pnpm install
+
+# Using bun
 bun install
 ```
 
@@ -29,4 +36,3 @@ export default new Command({
   },
 });
 ```
-
